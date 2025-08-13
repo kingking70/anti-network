@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anti-network chats</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">people</a></li>
+            <li><a href="projects.html">projects</a></li>
+            <li><a href="faq.html">faq</a></li>
+            <li><a href="about.html">about</a></li>
+        </ul>
+    </nav>
+    <h1>projects</h1>
+
+    
+    <!-- reusable project cards -->
+    <section class="cards" id="projects-cards" aria-label="projects"></section>
+
+    <template id="project-card-template">
+        <article class="project-card">
+            <div class="friend-name"></div>
+            <div class="project-title"></div>
+            <div class="project"></div>
+            <div class="hurdles"></div>
+            <div class="card-actions"></div>
+        </article>
+    </template>
+
+    <script>
+        window.__projectCardsData = [
+            {
+                name: "keith ng",
+                title: "good guys win",
+                project: "private cook for private and intimate events",
+                hurdles: "space and continuous rent constraints; menu",
+                links: [{ label: "keith's instagram", href: "https://www.instagram.com/dooakeith/" }],
+            },
+            {
+                name: "keith ng",
+                title: "beta for good guys win",
+                project: "private cook for 4-5 people",
+                hurdles: "time to create menu; time to practice so the actual cooking would take the exact time practiced or less",
+                links: [{ label: "keith's email", href: "#" }]
+            },
+            {
+                name: "keith ng",
+                title: "--nil--",
+                project: "recipes on reels",
+                hurdles: "new recipe creation; time spent on cooking while juggling work",
+            },
+            {
+                name: "kingston koh",
+                title: "sayCheese",
+                project: "vivino for cheese app",
+                hurdles: "skills to build a image recognition model; database of cheeses",
+                links: [{ label: "sayCheese app", href: "#" }],
+            },
+        ];
+    </script>
+
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 anti-network</p>
+    </footer>
+</body>
+</html>

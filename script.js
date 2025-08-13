@@ -58,3 +58,67 @@ if (roomSelector && chatForm && chatInput && chatMessages) {
         }
     });
 } 
+
+// reusable project card renderer
+function renderProjectCards(dataOverride) {
+  const container = document.getElementById('projects-cards');
+  const template = document.getElementById('project-card-template');
+  const data = Array.isArray(dataOverride) ? dataOverride : window.__projectCardsData;
+  if (!container || !template || !Array.isArray(data)) return;
+
+  container.innerHTML = '';
+  data.forEach(item => {
+    const node = template.content.cloneNode(true);
+    const nameEl = node.querySelector('.friend-name');
+    const titleEl = node.querySelector('.project-title');
+    const projectEl = node.querySelector('.project');
+    const hurdlesEl = node.querySelector('.hurdles');
+    const actionsEl = node.querySelector('.card-actions');
+
+    if (nameEl) {
+      nameEl.innerHTML = '';
+      const span = document.createElement('span');
+      span.innerHTML = '<span class="section-label">who?:</span> ' + (item.name || '');
+      nameEl.appendChild(span);
+    }
+
+    if (titleEl) {
+      titleEl.innerHTML = '';
+      const span = document.createElement('span');
+      span.innerHTML = '<span class="section-label">what?:</span> ' + (item.title || '');
+      titleEl.appendChild(span);
+    }
+
+    if (projectEl) {
+      projectEl.innerHTML = '';
+      const span = document.createElement('span');
+      span.innerHTML = '<span class="section-label">project:</span> ' + (item.project || '');
+      projectEl.appendChild(span);
+    }
+
+    if (hurdlesEl) {
+      hurdlesEl.innerHTML = '';
+      const span = document.createElement('span');
+      span.innerHTML = '<span class="section-label">hurdles:</span> ' + (item.hurdles || '');
+      hurdlesEl.appendChild(span);
+    }
+
+    if (actionsEl && Array.isArray(item.links)) {
+      item.links.forEach(link => {
+        const a = document.createElement('a');
+        a.href = link.href;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = link.label;
+        actionsEl.appendChild(a);
+      });
+    }
+
+    container.appendChild(node);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() { renderProjectCards(); });
+
+// expose for reuse elsewhere
+window.renderProjectCards = renderProjectCards;
