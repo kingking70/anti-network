@@ -120,29 +120,20 @@ function createProjectCard(item, index) {
 
 function initCarousel() {
     const track = document.getElementById('carouselTrack');
-    const dotsContainer = document.getElementById('carouselDots');
     
     // Check if we're on the projects page
-    if (!track || !dotsContainer || !window.__projectCardsData) {
+    if (!track || !window.__projectCardsData) {
         return;
     }
     
-    const projectData = window.__projectCardsData;
+    // Create a shuffled copy of the project data
+    const projectData = [...window.__projectCardsData].sort(() => Math.random() - 0.5);
     
     // Create cards
     projectData.forEach((item, index) => {
         const slide = createProjectCard(item, index);
         slides.push(slide);
         track.appendChild(slide);
-    });
-    
-    // Create dots
-    projectData.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.className = 'carousel-dot';
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(index));
-        dotsContainer.appendChild(dot);
     });
     
     // Set initial positions
@@ -199,15 +190,9 @@ function updateSlidePositions() {
 
 function goToSlide(index) {
     currentIndex = index;
-    const dots = document.querySelectorAll('.carousel-dot');
     
     // Update slide positions
     updateSlidePositions();
-    
-    // Update dots
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentIndex);
-    });
 }
 
 // Initialize carousel when page loads
