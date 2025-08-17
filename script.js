@@ -80,12 +80,16 @@ function createProjectCard(item, index) {
     const projectDiv = document.createElement('div');
     projectDiv.innerHTML = `<span class="section-label">project:</span> ${item.project || ''}`;
     
+    const statusDiv = document.createElement('div');
+    statusDiv.innerHTML = `<span class="section-label">status:</span> ${item.status || ''}`;
+    
     const hurdlesDiv = document.createElement('div');
     hurdlesDiv.innerHTML = `<span class="section-label">hurdles:</span> ${item.hurdles || ''}`;
     
     card.appendChild(nameDiv);
     card.appendChild(titleDiv);
     card.appendChild(projectDiv);
+    card.appendChild(statusDiv);
     card.appendChild(hurdlesDiv);
     
     if (item.links && item.links.length > 0) {
