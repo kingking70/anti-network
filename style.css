@@ -11,6 +11,10 @@ body {
     background: #fafafa;
 }
 
+a {
+    text-decoration: none;
+}
+
 nav {
     position: fixed;
     top: 0;
