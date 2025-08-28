@@ -59,7 +59,7 @@ if (roomSelector && chatForm && chatInput && chatMessages) {
     });
 }
 
-// Carousel functionality for projects page
+// Carousel functionality for ideas page
 let currentIndex = 0;
 const slides = [];
 
@@ -125,7 +125,7 @@ function createProjectCard(item, index) {
 function initCarousel() {
     const track = document.getElementById('carouselTrack');
     
-    // Check if we're on the projects page
+    // Check if we're on the ideas page
     if (!track || !window.__projectCardsData) {
         return;
     }
