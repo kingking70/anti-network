@@ -5,7 +5,8 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 2em;
+    padding-left: 15em;
+    padding-right: 15em;
     line-height: 1.5;
     flex-direction: column;
     background: #fafafa;
