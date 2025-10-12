@@ -26,6 +26,10 @@ nav {
     z-index: 1000;
 }
 
+s {
+    text-decoration-thickness: 3px;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
